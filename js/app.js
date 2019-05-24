@@ -66,26 +66,28 @@ Player.prototype.render = function() {
 };
 // defines the player movement lenght according the arrow keys on a keyboard
   Player.prototype.handleInput = function(dt) {
-if (this.x < 500 || this.x > 1 || this.y < 606 || this.y > 2) {
       switch (dt) {
           case "up":
-             this.y -= 50;
+            if (this.y > 2) {
+              this.y -= 50;
+            }
              break;
           case "down":
-            this.y += 50;
+            if (this.y < 400) {
+              this.y += 50;
+            }
             break;
           case "left":
-             this.x -= 50;
+            if (this.x > 1) {
+              this.x -= 50;
+            }
              break;
           case "right":
-             this.x += 50;
+            if (this.x < 400) {
+              this.x += 50;
+            }
              break;
-           }
         }
-      else {
-        this.x = this.x;
-        this.y = this.y;
-      }
 };
 
 
